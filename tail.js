@@ -4,22 +4,17 @@ const assertEqual = function(actual, expected) {
   } else {
     console.log(`🛑🛑🛑Assertion Failed: ${actual} === ${expected}`);
 
-  
+
   }
 };
 
 const tail = (array) => {
   let tailedArray = [];
-  if (array.length === 0) {
-    return [];
-  } else if (array.length === 1) {
-    return [];
-  } else {
-    for (let i = 1; i < array.length; i++) {
-      tailedArray.push(array[i]);
-    } return tailedArray;
- 
-  }
+  for (let i = 1; i < array.length; i++) {
+    tailedArray.push(array[i]);
+  } return tailedArray;
+
+
 };
 
 // Test Case: Check the returned array elements
@@ -39,6 +34,5 @@ assertEqual(empt[0], 3); // should fail
 
 //Test Case: One Element Array
 const oneElm = tail([1]);
-assertEqual( oneElm[0], 1); // should fail
-
+assertEqual(oneElm[0], 1);// should fail
 
