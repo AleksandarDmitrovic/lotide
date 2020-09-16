@@ -1,13 +1,3 @@
-const assertArraysEqual = function(array1, array2) {
-  if (eqArrays(array1, array2)) {
-    console.log(`✅✅✅Assertion Passed: ${array1} === ${array2}`);
-  } else {
-    console.log(`🛑🛑🛑Assertion Failed: ${array1} !== ${array2}`);
-
-
-  }
-};
-
 const eqArrays = function(firstArray, secondArray) {
   // variable to store boolean value
   let arrayEquivalence;
@@ -21,6 +11,7 @@ const eqArrays = function(firstArray, secondArray) {
         arrayEquivalence = true;
       } else {
         arrayEquivalence = false;
+        break;
       }
 
     }
@@ -31,8 +22,15 @@ const eqArrays = function(firstArray, secondArray) {
   return arrayEquivalence;
 };
 
+const assertArraysEqual = function(array1, array2) {
+  if (eqArrays(array1, array2)) {
+    console.log(`✅✅✅Assertion Passed: ${array1} === ${array2}`);
+  } else {
+    console.log(`🛑🛑🛑Assertion Failed: ${array1} !== ${array2}`);
 
 
+  }
+};
 
 assertArraysEqual([1, 2, 3], [1, 2, 3]); // Should Pass equal integer arrays
 assertArraysEqual([1, 2, 3], [3, 2, 1]); // Should Fail unequal integer arrays

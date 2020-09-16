@@ -21,6 +21,7 @@ const eqArrays = function(firstArray, secondArray) {
         arrayEquivalence = true;
       } else {
         arrayEquivalence = false;
+        break;
       }
 
     }
@@ -30,6 +31,7 @@ const eqArrays = function(firstArray, secondArray) {
   }
   return arrayEquivalence;
 };
+
 
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // Should Pass equal integer arrays
 assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false); // Should Pass unequal integer arrays

@@ -1,15 +1,3 @@
-const assertArraysEqual = function(array1, array2) {
-  if (eqArrays(array1, array2)) {
-    console.log(`✅✅✅Assertion Passed: ${array1} === ${array2}`);
-  } else {
-    console.log(`🛑🛑🛑Assertion Failed: ${array1} !== ${array2}`);
-
-
-  }
-};
-
-
-
 const eqArrays = function(firstArray, secondArray) {
   // variable to store boolean value
   let arrayEquivalence = true;  //initally true for the case of two empty arrays
@@ -34,6 +22,15 @@ const eqArrays = function(firstArray, secondArray) {
   return arrayEquivalence;
 };
 
+const assertArraysEqual = function(array1, array2) {
+  if (eqArrays(array1, array2)) {
+    console.log(`✅✅✅Assertion Passed: ${array1} === ${array2}`);
+  } else {
+    console.log(`🛑🛑🛑Assertion Failed: ${array1} !== ${array2}`);
+
+
+  }
+};
 
 //commented out using eqArrays function inside without function
 const without = function(sourceArray, itemsToRemoveArray) {
