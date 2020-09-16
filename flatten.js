@@ -37,7 +37,7 @@ const flatten = function(array) {
   let nestedArray = [];
 
   for (const arrayElement of array) {
-    if(Array.isArray(arrayElement)) {
+    if (Array.isArray(arrayElement)) {
       nestedArray = arrayElement;
       for (const nestedArrayElement of nestedArray) {
         flattenedArray.push(nestedArrayElement);
@@ -51,7 +51,7 @@ const flatten = function(array) {
 
 assertArraysEqual(flatten([1, 2, 3, [1]]), [1, 2, 3, 1]);  // Should Pass
 assertArraysEqual(flatten(["1", "2", "3", [1, 2, "3"]]), ["1", "2", "3", 1, 2, "3"]); //  Should Pass
-assertArraysEqual(flatten(["1", [1], "2", [2, 3], "3"]), ["1", 1, "2", 2, 3, "3"]); // Should Pass 
+assertArraysEqual(flatten(["1", [1], "2", [2, 3], "3"]), ["1", 1, "2", 2, 3, "3"]); // Should Pass
 
 
 // console.log(eqArrays([], []));
