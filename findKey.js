@@ -50,3 +50,9 @@ assertEqual(findKey({
   "hello":  { language: 'English'},
   "zdravo": { language: 'Serbian'},
 }, greet => greet.language === 'Serbian'), 'zdravo'); // Should pass
+
+assertEqual(findKey({
+  hola:  'Spanish',
+  hello: 'English',
+  zdravo:'Serbian'
+}, language => language === 'Serbian'), 'zdravo'); // Should pass
