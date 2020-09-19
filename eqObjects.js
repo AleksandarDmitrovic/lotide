@@ -36,22 +36,88 @@ const eqObjects = function(object1, object2) {
   if (object1Keys.length !== object2Keys.length) {
     return false;
   }
-  
-  for (let key1 of object1Keys) {
-
-    if (Array.isArray(object1[key1]) && Array.isArray(object2[key1])) {
-      if (!eqArrays(object1[key1], object2[key1])) {
+ 
+  for (let key of object1Keys) {
+    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
+      if (!eqArrays(object1[key], object2[key])) {
         return false;
       }
-
-    } else if (object1[key1] !== object2[key1]) {
+    } else if (typeof object1[key] === 'object') {
+      if (!eqObjects(object1[key], object2[key])) {
+        return false;
+      }
+    } else if (object1[key] !== object2[key]) {
       return false;
     }
   }
   return true;
 };
+console.log(`NESTED OBJECT TEST CASES`);
+console.log(eqObjects({ a: {
+  z: 1 },
+b: 2 },
+{ a: {
+  z: 1 },
+b: 2 }), 'Should be true'); // => true
 
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 },
+  { a: { z: 1 }, b: 2 }), 'Should be false'); // => false
 
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), 'Should be false'); // => false
+
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), 'Should be false'); // => false
+
+console.log(eqObjects({
+  prop1: 1,
+  prop2: "foo",
+  prop3: {
+    prop4: 2,
+    prop5: "bar"
+  },
+  prop6: "new"
+}, {
+  prop1: 1,
+  prop2: "foo",
+  prop3: {
+    prop4: 2,
+    prop5: "bar"
+  },
+  prop6: "new"
+}), 'Should be true'); // => true
+
+console.log(eqObjects({
+  prop1: 1,
+  prop2: "foo",
+  prop3: {
+    prop4: 2,
+    prop5: "bar"
+  },
+  prop6: {
+    prop1: 1,
+    prop2: "foo",
+    prop3: {
+      prop4: 2,
+      prop5: "bar"
+    },
+    prop6: "new"
+  }
+}, {
+  prop1: 1,
+  prop2: "foo",
+  prop3: {
+    prop4: 2,
+    prop5: "bar"
+  },
+  prop6: {
+    prop1: 1,
+    prop2: "foo",
+    prop3: {
+      prop4: 2,
+      prop5: "bar"
+    },
+    prop6: "new"
+  }
+}), 'Should be true *multiple layers deep'); // => true
 
 console.log('Primitives As Values (Tests)');
 
