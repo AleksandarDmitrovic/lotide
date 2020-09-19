@@ -1,13 +1,23 @@
-const eqArrays = function(firstArray, secondArray) {
+const eqArrays = function(array1, array2) {
   // variable to store boolean value
   let arrayEquivalence;
   //check to see arrays are equivalent length
-  let arrayLengthEquivalence = firstArray.length === secondArray.length;
+  let arrayLengthEquivalence = array1.length === array2.length;
+
+  if (arrayLengthEquivalence === false) {
+    return false;
+  }
 
   if (arrayLengthEquivalence) {
     //Loop through each element of the arrays and compare each num
-    for (let num = 0; num < firstArray.length; num++) {
-      if (firstArray[num] === secondArray[num]) {
+    for (let num = 0; num < array1.length; num++) {
+      if (Array.isArray(array1[num]) && Array.isArray(array2[num])) {
+        if (!eqArrays(array1[num], array2[num])) {   // RECURSION
+          return false;
+        } else {
+          arrayEquivalence = true;
+        }
+      } else if (array1[num] === array2[num]) {
         arrayEquivalence = true;
       } else {
         arrayEquivalence = false;
@@ -16,9 +26,8 @@ const eqArrays = function(firstArray, secondArray) {
 
     }
 
-  } else {
-    arrayEquivalence = false;
   }
+
   return arrayEquivalence;
 };
 
