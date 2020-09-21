@@ -1,3 +1,5 @@
+const assertEqual = require('./assertEqual');
+
 const tail = (array) => {
   let tailedArray = [];
   for (let i = 1; i < array.length; i++) {
