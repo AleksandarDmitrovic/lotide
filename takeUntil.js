@@ -1,36 +1,5 @@
-const eqArrays = function(firstArray, secondArray) {
-  // variable to store boolean value
-  let arrayEquivalence;
-  //check to see arrays are equivalent length
-  let arrayLengthEquivalence = firstArray.length === secondArray.length;
-
-  if (arrayLengthEquivalence) {
-    //Loop through each element of the arrays and compare each num
-    for (let num = 0; num < firstArray.length; num++) {
-      if (firstArray[num] === secondArray[num]) {
-        arrayEquivalence = true;
-      } else {
-        arrayEquivalence = false;
-        break;
-      }
-
-    }
-
-  } else {
-    arrayEquivalence = false;
-  }
-  return arrayEquivalence;
-};
-
-const assertArraysEqual = function(actual, expected) {
-  const inspect = require('util').inspect;
-
-  if (eqArrays(actual, expected)) {
-    console.log(`✅✅✅Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
-  } else {
-    console.log(`🛑🛑🛑Assertion Failed: ${inspect(actual)} !== ${inspect(expected)}`);
-  }
-};
+const eqArrays = require('./eqArrays');
+const assertArraysEqual = require('./assertArraysEqual');
 
 
 // The array to work with
@@ -76,3 +45,5 @@ assertArraysEqual(takeUntil(phrases, phrase => phrase.length < 4), ['hello', 'bo
 
 const numbers = [100, 54, 33, 14, 67, 77, 83, 60, 90]; //
 assertArraysEqual(takeUntil(numbers, number => number < 20), [100, 54, 33]); // Should Pass
+
+module.exports = takeUntil;

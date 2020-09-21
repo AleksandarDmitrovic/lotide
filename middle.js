@@ -1,5 +1,3 @@
-const assertArraysEqual = require('./assertArraysEqual');
-
 const middle = function(array) {
   let arrayLength = array.length;
   let arraysWithoutMiddles = (arrayLength === 0 || arrayLength === 1 || arrayLength === 2);
