@@ -1,0 +1,26 @@
+{
+  "name": "lotide",
+  "version": "1.0.0",
+  "description": "A clone of the lodash JavaScript library to practice creating various types of functions using JS",
+  "main": "assertArraysEqual.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleksandarDmitrovic/lotide.git"
+  },
+  "author": "Aleksandar Dmitrovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AleksandarDmitrovic/lotide/issues"
+  },
+  "homepage": "https://github.com/AleksandarDmitrovic/lotide#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3"
+  }
+}
