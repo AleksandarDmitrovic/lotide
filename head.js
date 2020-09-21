@@ -1,5 +1,3 @@
-const assertEqual = require('./assertEqual');
-
 const head = (array) => {
   if (array[0] === '') {
     return undefined;
