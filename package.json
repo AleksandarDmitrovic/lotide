@@ -19,5 +19,8 @@
     "url": "https://github.com/AleksandarDmitrovic/lotide/issues"
   },
   "homepage": "https://github.com/AleksandarDmitrovic/lotide#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3"
+  }
 }
